@@ -1,0 +1,18 @@
+apiVersion: zookeeper.pravega.io/v1beta1
+kind: ZookeeperCluster
+metadata:
+  name: zookeeper
+  namespace: kafka
+spec:
+  # Add fields here
+  replicas: 1
+  image:
+    repository: pravega/zookeeper
+    tag: latest
+  persistence:
+    accessModes: ["ReadWriteOnce"]
+    storageClassName: "standard"
+    reclaimPolicy: Delete
+    resources:
+      requests:
+        storage: 10Gi
